@@ -1,0 +1,193 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+  header("Location: connexion.html");
+  exit();
+}
+$solde_principal = "0 FCFA"; // à remplacer plus tard par un vrai solde
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fanta - Tableau de bord</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('img/image2.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background: rgba(30, 144, 255, 0.9);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profil {
+      background: #fff;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .profil h3 {
+      margin-bottom: 10px;
+    }
+
+    .solde {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      min-width: 120px;
+      padding: 10px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-container button:hover {
+      background-color: #0d75d8;
+    }
+
+    main {
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.85);
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .vip-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .vip-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 250px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .vip-card h3 {
+      color: #1e90ff;
+      margin-bottom: 10px;
+    }
+
+    .vip-card p {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .vip-card button {
+      margin-top: 15px;
+      background: #1e90ff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .vip-card button:hover {
+      background: #0d75d8;
+    }
+
+    footer {
+      background: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .vip-card {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      main {
+        margin: 10px;
+        padding: 20px;
+      }
+
+      .btn-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bienvenue sur Fanta</h1>
+    <p>Choisissez votre offre d'investissement</p>
+  </header>
+
+  <!-- Profil + Solde + Boutons -->
+  <div class="profil">
+    <h3>👤 Profil</h3>
+    <div class="solde">Solde principal : <?= $solde_principal ?></div>
+    <div class="btn-container">
+      <button>Recharger</button>
+      <button>Retirer</button>
+      <button>Portefeuille</button>
+      <button>Historique Rechargement</button>
+      <button>Historique Retrait</button>
+      <button onclick="window.location.href='logout.php'">Déconnexion</button>
+    </div>
+  </div>
+
+  <!-- Section VIP (Nouveau design) -->
+  <main>
+    <h2>Nos Offres VIP</h2>
+    <div class="vip-container">
+      <div class="vip-card"><h3>VIP 1</h3><p>Investissement min : 10 000 FCFA<br> Rendement : 3% / jour</p><button>Souscrire</button></div>
+      <div class="vip-card"><h3>VIP 2</h3><p>Investissement min : 25 000 FCFA<br> Rendement : 3.5% / jour</p><button>Souscrire</button></div>
+      <div class="vip-card"><h3>VIP 3</h3><p>Investissement min : 50 000 FCFA<br> Rendement : 4% / jour</p><button>Souscrire</button></div>
+      <div class="vip-card"><h3>VIP 4</h3><p>Investissement min : 100 000 FCFA<br> Rendement : 4.5% / jour</p><button>Souscrire</button></div>
+      <div class="vip-card"><h3>VIP 5</h3><p>Investissement min : 200 000 FCFA<br> Rendement : 5% / jour</p><button>Souscrire</button></div>
+      <div class="vip-card"><h3>VIP 6</h3><p>Investissement min : 500 000 FCFA<br> Rendement : 5.5% / jour</p><button>Souscrire</button></div>
+      <div class="vip-card"><h3>VIP 7</h3><p>Investissement min : 1 000 000 FCFA<br> Rendement : 6% / jour</p><button>Souscrire</button></div>
+      <div class="vip-card"><h3>VIP 8</h3><p>Investissement min : 2 000 000 FCFA<br> Rendement : 7% / jour</p><button>Souscrire</button></div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 - Fanta. Tous droits réservés.
+  </footer>
+
+</body>
+</html>

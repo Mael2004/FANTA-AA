@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fanta - Plateforme d'investissement</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    header { background: #1e90ff; color: white; padding: 20px; text-align: center; }
+    main { padding: 40px; text-align: center; }
+    form { background: white; padding: 20px; max-width: 400px; margin: 0 auto; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;
+    }
+    input[type="submit"] {
+      background: #1e90ff; color: white; padding: 12px; border: none; border-radius: 4px; width: 100%; cursor: pointer;
+    }
+    input[type="submit"]:hover { background: #0d75d8; }
+    a { color: #1e90ff; text-decoration: none; display: block; margin-top: 10px; }
+    footer { background: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bienvenue sur Fanta</h1>
+    <p>Investissez intelligemment dès aujourd’hui</p>
+  </header>
+  <main>
+    <h2>Inscrivez-vous maintenant</h2>
+    <form action="inscription.php" method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre e-mail" required />
+      <input type="password" name="password" placeholder="Mot de passe" required />
+      <input type="submit" value="S'inscrire" />
+      <a href="connexion.html">Vous avez déjà un compte ? Connectez-vous</a>
+    </form>
+  </main>
+  <footer>
+    © 2025 - Fanta. Tous droits réservés.
+  </footer>
+</body>
+</html>
